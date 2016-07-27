@@ -87,6 +87,17 @@ export function configRouter(router) {
       component: require('project/profile/index.vue')
     },
 
+    //Тест верстки платажей
+    '/payment': {
+      name: 'payment',
+      component: require('project/payment/payment.vue')
+    },
+
+    '/pay-on': {
+      name: 'pay-on',
+      component: require('project/payment/pay-on.vue')
+    },
+
     // not found handler
     '*': {
       component: require('project/not-found/index.vue'),
