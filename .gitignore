@@ -86,4 +86,4 @@ building/
 dist/
 
 # Website config.
-config.js
+#config.js
