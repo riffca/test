@@ -1,10 +1,6 @@
-#Trendever website
 ###How to install:
 
-  1. Clone project :
-
-    + `git clone git@github.com:trendever/website.git`
-
+  1. Clone project
 
   2. Install npm :
 
