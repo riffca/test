@@ -13,13 +13,14 @@
         :class='{"chat-msg_t-customer-color":isCustomer}'
     )
       | {{{ getUsername }}}
-    img(
-        @click="open",
-        :src='getImg',
-        class='chat-msg-img',
-        v-bind:class='{"chat-msg-img-opacity":!isLoaded }',
-        v-bind:style="imgStyle"
-      )
+    .chat-msg-img-wrapper(v-bind:class='{"chat-msg-img-wrapper-show-large-img" : showLargeImg }')
+      img(
+          @click="open",
+          :src='getImg',
+          class='chat-msg-img',
+          v-bind:class='{"chat-msg-img-opacity":!isLoaded }',
+          v-bind:style="imgStyle"
+        )
 
 </template>
 
@@ -54,6 +55,7 @@
 
     data(){
       return {
+        showLargeImg: false,
         imgStyle:{
           width: `600px`,
           height: `600px`
@@ -64,6 +66,9 @@
     methods:{
 
       open(){
+
+        this.showLargeImg = !this.showLargeImg;
+
         if ( this.msg.parts[ 0 ].mime_type === 'image/json' ) {
 
           let {width, height} = JSON.parse( this.msg.parts[ 0 ].content );
